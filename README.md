@@ -20,15 +20,3 @@ Model | Accuracy |
 
 ## References
 
-
-## Citation
-```
-
-@misc{luanresmaskingnet2020,
-Author = {Luan Pham & Tuan Anh Tran},
-Title = {Facial Expression Recognition using Residual Masking Network},
-url = {https://github.com/phamquiluan/ResidualMaskingNetwork},
-Year = {2020}
-}
-```
-
