@@ -38,7 +38,6 @@ class AlexNet(nn.Module):
             nn.Dropout(),
             nn.Linear(4096, 4096),
             nn.ReLU(inplace=True),
-            # TODO: strictly set to 1000 to load pretrained
             # nn.Linear(4096, num_classes),
             nn.Linear(4096, 1000),
         )

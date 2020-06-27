@@ -226,7 +226,7 @@ def _resnet(arch, block, layers, pretrained, progress, **kwargs):
     return model
 
 
-def resnet18(pretrained=False, progress=True, **kwargs):
+def resnet18(pretrained=True, progress=True, **kwargs):
     r"""ResNet-18 model from
     `"Deep Residual Learning for Image Recognition" <https://arxiv.org/pdf/1512.03385.pdf>`_
 
@@ -242,7 +242,7 @@ def resnet18(pretrained=False, progress=True, **kwargs):
     return model
 
 
-def resnet34(pretrained=False, progress=True, **kwargs):
+def resnet34(pretrained=True, progress=True, **kwargs):
     r"""ResNet-34 model from
     `"Deep Residual Learning for Image Recognition" <https://arxiv.org/pdf/1512.03385.pdf>`_
 
@@ -256,7 +256,7 @@ def resnet34(pretrained=False, progress=True, **kwargs):
     return model
 
 
-def resnet50(pretrained=False, progress=True, **kwargs):
+def resnet50(pretrained=True, progress=True, **kwargs):
     r"""ResNet-50 model from
     `"Deep Residual Learning for Image Recognition" <https://arxiv.org/pdf/1512.03385.pdf>`_
 
@@ -270,7 +270,7 @@ def resnet50(pretrained=False, progress=True, **kwargs):
     return model
 
 
-def resnet101(pretrained=False, progress=True, **kwargs):
+def resnet101(pretrained=True, progress=True, **kwargs):
     r"""ResNet-101 model from
     `"Deep Residual Learning for Image Recognition" <https://arxiv.org/pdf/1512.03385.pdf>`_
 
@@ -284,7 +284,7 @@ def resnet101(pretrained=False, progress=True, **kwargs):
     return model
 
 
-def resnet152(pretrained=False, progress=True, **kwargs):
+def resnet152(pretrained=True, progress=True, **kwargs):
     r"""ResNet-152 model from
     `"Deep Residual Learning for Image Recognition" <https://arxiv.org/pdf/1512.03385.pdf>`_
 
@@ -327,7 +327,7 @@ def resnext101_32x8d(pretrained=False, progress=True, **kwargs):
                    pretrained, progress, **kwargs)
 
 
-def wide_resnet50_2(pretrained=False, progress=True, **kwargs):
+def wide_resnet50_2(pretrained=True, progress=True, **kwargs):
     r"""Wide ResNet-50-2 model from
     `"Wide Residual Networks" <https://arxiv.org/pdf/1605.07146.pdf>`_
 
@@ -345,7 +345,7 @@ def wide_resnet50_2(pretrained=False, progress=True, **kwargs):
                    pretrained, progress, **kwargs)
 
 
-def wide_resnet101_2(pretrained=False, progress=True, **kwargs):
+def wide_resnet101_2(pretrained=True, progress=True, **kwargs):
     r"""Wide ResNet-101-2 model from
     `"Wide Residual Networks" <https://arxiv.org/pdf/1605.07146.pdf>`_
 

@@ -55,9 +55,6 @@ class FeatureExtractor():
         x = x * (1 + m)
 
         x = self.model.layer2(x)  # 28
-
-        x.register_hook(self.save_gradient)
-
         m = self.model.mask2(x)
         x = x * m
 
@@ -66,14 +63,9 @@ class FeatureExtractor():
         x = x * m
 
         x = self.model.layer4(x)  # 7
-
-
         m = self.model.mask4(x)
         x = x * m
-
-
-        # CHO NO QUAY LEN O LOP CUOI CUNG,
-        # KHONG BIET CHO NAY CO LAY GRAD DUOC KHONG
+        x.register_hook(self.save_gradient)
  
         outputs += [x]
         return outputs, x
@@ -242,11 +234,7 @@ def get_args():
 
 if __name__ == '__main__':
     """ python grad_cam.py <path_to_image>
-    1. Loads an image with opencv.
-    2. Preprocesses it for VGG19 and converts to a pytorch variable.
-    3. Makes a forward pass to find the category index with the highest score,
-    and computes intermediate activations.
-    Makes the visualization. """
+    """
 
     args = get_args()
 
@@ -259,6 +247,7 @@ if __name__ == '__main__':
     # feature method, and a classifier method,
     # as in the VGG models in torchvision.
     '''
+    Use this for vgg19
     grad_cam = GradCam(
         model=models.vgg19(pretrained=True),
         target_layer_names = ["35"],
@@ -279,7 +268,7 @@ if __name__ == '__main__':
 
     import os
     import glob
-    from natsort import natsorted
+    #from natsort import natsorted
 
     # for image_path in natsorted(glob.glob('/home/z/research/archive_for_tee/face_CK+/only_face/*.png')):
     # for image_path in natsorted(glob.glob('./affectnet_face/*.png')):
