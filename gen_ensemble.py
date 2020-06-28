@@ -15,9 +15,6 @@ torch.backends.cudnn.benchmark = False
 
 
 model_dict = [
-"""
-	checkpoints for fer2013
-""" 
     #('resnet18', 'resnet18_rot30_2019Nov05_17.44'),
     #('resnet50_pretrained_vgg', 'resnet50_pretrained_vgg_rot30_2019Nov13_08.20'),
     #('resnet101', 'resnet101_rot30_2019Nov14_18.12'),
@@ -25,30 +22,24 @@ model_dict = [
     #('efficientnet_b2b', 'efficientnet_b2b_rot30_2019Nov15_20.02'),
     #('resmasking_dropout1', 'resmasking_dropout1_rot30_2019Nov17_14.33'),
     #('resmasking', 'resmasking_rot30_2019Nov14_04.38'),
-"""
-	checkpoints for jaffe
-"""
-    #('resnet18', 'resnet18__n_2020Jun24_15.10'),
-#    ('resnet50_pretrained_vgg', 'resnet50_pretrained_vgg_rot30_2019Nov13_08.20'),
-#    ('resnet101', 'resnet101__n_2020Jun24_13.04'),
-     ('cbam_resnet50', 'cbam_resnet50__n_2020Jun24_13.32'),
-#     ('efficientnet_b2b', 'efficientnet_b2b__n_2020Jun24_13.40'),
+    ('resnet18', 'resnet18__n_2020Jun27_09.51'),
+#     ('resnet50_pretrained_vgg', 'resnet50_pretrained_vgg_rot30_2019Nov13_08.20'),
+    ('resnet101', 'resnet101__n_2020Jun27_09.16'),
+     ('cbam_resnet50', 'cbam_resnet50__n_2020Jun27_09.40'),
+     ('efficientnet_b2b', 'efficientnet_b2b__n_2020Jun27_10.00'),
 #     ('resmasking_dropout1', 'resmasking_dropout1__n_2020Jun24_13.09'),
 #     ('resmasking', 'resmasking__n_2020Jun24_15.07'),
 #     ('alexnet','alexnet__n_2020Jun24_13.57'),
 #     ('densenet121','densenet121__n_2020Jun24_13.58'),
 #     ('googlenet','googlenet__n_2020Jun24_14.26'),
 #     ('inception_resnet_v1','inception_resnet_v1__n_2020Jun24_14.08'),
- #    ('resnet152','resnet152__n_2020Jun24_13.26'),
+#     ('resnet152','resnet152__n_2020Jun24_13.26'),
 #     ('resnet34','resnet34__n_2020Jun24_13.19'),
 #     ('vgg16','vgg16__n_2020Jun24_14.44'),
 #     ('vgg19','vgg19__n_2020Jun24_14.15'),
 #     ('wide_resnet101_2','wide_resnet101_2__n_2020Jun24_14.23'),
 #     ('wide_resnet50_2','wide_resnet50_2__n_2020Jun24_13.48'),
 #     ('bam_resnet50','bam_resnet50__n_2020Jun24_16.00')
-"""
-	checkpoints for CK+
-"""
 ]
 
 
@@ -65,9 +56,9 @@ def main():
     test_results_list = np.array(test_results_list)
 
     # load test targets
-    test_targets = np.load('./saved/jaffe_target.npy', allow_pickle=True)
+    test_targets = np.load('./saved/targets/jaffe_target.npy', allow_pickle=True)
 
-    model_dict_proba = [1]
+    model_dict_proba = [1,1,1,1]
 
     tmp_test_result_list = []
     for idx in range(len(model_dict_proba)):
@@ -78,7 +69,7 @@ def main():
 
     correct = np.sum(np.equal(tmp_test_result_list, test_targets))
 
-    acc = (correct / 41) * 100
+    acc = (correct / 70) * 100
     print(acc)
 
 
