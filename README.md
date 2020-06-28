@@ -24,7 +24,7 @@ Model | Accuracy |
 [Bam\_Resnet50](www.google.com) | 73.14
 [Densenet121](www.google.com) | 73.16
 [Cbam\_Resnet50](www.google.com) | 72.95
-[ResMaskingNet](www.google.com) | 73.75
+[ResMaskingNet](www.google.com) | 74.14
 [ResMaskingNet + 6](www.google.com) | 76.82
 
 ### JAFFE
