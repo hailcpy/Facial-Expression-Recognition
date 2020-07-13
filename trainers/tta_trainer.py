@@ -30,17 +30,6 @@ from utils.generals import make_batch
 
 
 
-EMO_DICT = {
-    0: 'ne',
-    1: 'an',
-    2: 'di',
-    3: 'fe',
-    4: 'ha',
-    5: 'sa',
-    6: 'su'
-}
-
-
 class Trainer(object):
     """base class for trainers"""
     def __init__(self):

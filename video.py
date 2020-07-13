@@ -6,13 +6,12 @@ import numpy as np
 import torch
 from torchvision.transforms import transforms
 from models import densenet121, resmasking_dropout1
-from barez import (
-    show,
+from utils.utils import (
     ensure_gray,
     ensure_color
 )
 
-haar = 'saved/data/xml/haarcascade_frontalface_default.xml'
+haar = 'saved/xml/haarcascade_frontalface_default.xml'
 face_cascade = cv2.CascadeClassifier(haar)
 
 transform = transforms.Compose([

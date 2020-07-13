@@ -1,77 +1,70 @@
 import os
-import json
-import glob
-
+import random
 import cv2
 import numpy as np
-from torch.utils.data import Dataset
+from imutils import paths
 from torchvision.transforms import transforms
-
-import sys
-sys.path.append('/home/z/research/tee')
+from torch.utils.data import Dataset
 from utils.augmenters.augment import seg
 
-'''
-0=neutral, 1=anger, 2=contempt, 3=disgust, 4=fear, 5=happy, 6=sadness, 7=surprise
-'''
+random.seed(123)
 
 
-class CkDataset(Dataset):
-    def __init__(self, stage, fold_idx, configs):
-        """ fold_idx: test fold """
-        self._configs = configs
+EMOTION_DICT = {
+    0: 'angry',
+    1: 'disgust',
+    2: 'fear',
+    3: 'happy',
+    4: 'sad',
+    5: 'surprise',
+    6: 'contempt'
+}
+
+
+
+class CK(Dataset):
+    def __init__(self, stage, configs, tta=False, tta_size=48):
         self._stage = stage
-        self._fold_idx = fold_idx
-        self._data = []
-
-        for fold_path in glob.glob('./saved/data/CK+/npy_folds/*.npy'):
-            fold_name = os.path.basename(fold_path)
-            if str(fold_idx) == fold_name[5:-4] and stage == 'test':
-                self._data = np.load(fold_path, allow_pickle=True).tolist()
-            if str(fold_idx) != fold_name[5:-4] and stage == 'train':
-                self._data.extend(np.load(fold_path, allow_pickle=True).tolist())
+        self._configs = configs
+        self._tta = tta
+        self._tta_size = tta_size
 
         self._image_size = (configs['image_size'], configs['image_size'])
+
+        self._data = list(paths.list_images(
+                configs['data_path']))
+        random.shuffle(self._data)
+
         self._transform = transforms.Compose([
             transforms.ToPILImage(),
-            transforms.ToTensor()
+            transforms.ToTensor(),
         ])
+
+    def is_tta(self):
+        return self._tta == True
 
     def __len__(self):
         return len(self._data)
 
     def __getitem__(self, idx):
-        image_name, image, label = self._data[idx]
-        image = cv2.resize(image, self._image_size)
-        
-        assert image.shape[2] == 3
-        assert label <= 7 and label >= 0
+        data = self._data[idx]
+        data = cv2.imread(data)
+        image = cv2.resize(data,self._image_size)
+        image = image.astype(np.uint8)
 
         if self._stage == 'train':
-            image = seg(image=image) 
+            image = seg(image=image)
 
-        return self._transform(image), label
+        if self._stage == 'test' and self._tta == True:
+            images = [seg(image=image) for i in range(self._tta_size)]
+            # images = [image for i in range(self._tta_size)]
+            images = list(map(self._transform, images))
+            target = int(self._data[idx].split(os.path.sep)[-2])
+            return images, target
 
+        image = self._transform(image)
+        target = int(self._data[idx].split(os.path.sep)[-2])
+        return image, target
 
-def ckdataset(stage, fold_idx, configs):
-    return CkDataset(stage, fold_idx, configs)
-
-
-if __name__ == "__main__":
-    data = ckdataset(
-        stage='train',
-        fold_idx=1,
-        configs= {
-            'image_size': 224,
-            'in_channels': 3
-        }
-    )
-    import cv2
-    from barez import pp
-    targets = []
-
-    for i in range(len(data)):
-        image, target = data[i]
-        cv2.imwrite('debug/{}.png'.format(i), image)
-        if i == 200:
-            break
+def ck(stage, configs=None, tta=False, tta_size=48):
+	return CK(stage, configs, tta, tta_size)
