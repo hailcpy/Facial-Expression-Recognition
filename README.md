@@ -17,13 +17,13 @@ Model | Accuracy |
 [EfficientNet_b2b](www.google.com)|70.83|
 [Googlenet](www.google.com) | 71.97
 [Resnet34](www.google.com) | 72.42
-[Resnet50](www.google.com) | 72.86
-[Resnet101](www.google.com) | 74.06
-[Resnet152](www.google.com) | 73.22
 [Inception\_v3](www.google.com) | 72.72
+[Resnet50](www.google.com) | 72.86
+[Cbam\_Resnet50](www.google.com) | 72.95
 [Bam\_Resnet50](www.google.com) | 73.14
 [Densenet121](www.google.com) | 73.16
-[Cbam\_Resnet50](www.google.com) | 72.95
+[Resnet152](www.google.com) | 73.22
+[Resnet101](www.google.com) | 74.06
 [ResMaskingNet](www.google.com) | 74.14
 [ResMaskingNet + 6](www.google.com) | 76.82
 
