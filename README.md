@@ -38,6 +38,20 @@ Model | Accuracy |
 [Cbam\_Resnet50](www.google.com) | 94.29
 [Ensemble of above CNNs](www.google.com) | 97.14
 
+### CK+
+
+Model | Accuracy |
+---------|--------|
+[Resnet18](www.google.com) | 96.631
+[Densenet121](www.google.com)  |97.573|
+[VGG19](www.google.com)  | 98.058|
+[Resnet101](www.google.com) | 98.544
+[ResNet50_pretrainedvgg](www.google.com) | 98.544
+[EfficientNet_b2b](www.google.com)|100|
+[Resnet34](www.google.com) | 100
+[Cbam\_Resnet50](www.google.com) | 100
+[ResMaskingNet](www.google.com) | 100
+
 <p id="install"></p>
 
 
