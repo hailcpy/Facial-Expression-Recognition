@@ -127,4 +127,8 @@ I used no-weighted sum avarage ensemble method to fuse 7 different models togeth
 2. Edit file ```gen_results``` and run it to generate result offline for **each** model.
 3. Run ```gen_ensemble.py``` file to generate accuracy for example methods.
 
+## Documentation
+
+[documentation](https://drive.google.com/file/d/1LmnL80xIthjOSY-FaEns1B7jcl2bPfQn/view?usp=sharing)
+
 ## References
