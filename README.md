@@ -99,7 +99,7 @@ Below is an example for generating a striking confusion matrix writing things in
 (Read [this article](https://matplotlib.org/3.1.1/tutorials/text/usetex.html) for more information, there will be some bugs if you blindly run the code without reading).
 
 ```Shell
-python gen_confusion_matrix.py
+python ./Visualization/gen_confusion_matrix.py
 ```
 
 <p align="center">
@@ -109,8 +109,15 @@ python gen_confusion_matrix.py
 Below is an example, to generate salient maps for jaffe images to find most import parts of the image used by the model for prediction.
 
 ```Shell
-python gen_salientmap.py
+python ./Visualization/gen_salientmap.py
 ```
+
+Below is an example, to generate gradCAM visualization to find most import parts of the image used by the model for prediction.
+
+```Shell
+python ./Visualization/gradCAM_resmasking.py
+```
+
 
 ## Ensemble method
 
