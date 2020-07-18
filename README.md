@@ -36,7 +36,8 @@ Model | Accuracy |
 [Resnet101](www.google.com) | 92.86
 [Resnet50](www.google.com) | 94.28
 [Cbam\_Resnet50](www.google.com) | 94.29
-[Ensemble of above CNNs](www.google.com) | 97.14
+[ResMaskingNet](www.google.com) | 97.1
+[Ensemble of above CNNs](www.google.com) | 98.2
 
 ### CK+
 
