@@ -131,7 +131,5 @@ I used no-weighted sum avarage ensemble method to fuse 7 different models togeth
 ## Documentation
 
 [documentation](https://drive.google.com/file/d/1t5RDEYSFVQ0NgLf8DPgPNxizbKdrRmOc/view?usp=sharing)
-[video1](https://drive.google.com/file/d/1ULS74mXyXUikQRxkLbJYd_NVIwuO03-3/view?usp=sharing)
-[video2](https://drive.google.com/file/d/1BQu_PUiSaHytONIfphx4J2pdIljom27z/view?usp=sharing)
 
 ## References
