@@ -48,10 +48,7 @@ Model | Accuracy |
 [VGG19](www.google.com)  | 98.058|
 [Resnet101](www.google.com) | 98.544
 [ResNet50_pretrainedvgg](www.google.com) | 98.544
-[EfficientNet_b2b](www.google.com)|100|
-[Resnet34](www.google.com) | 100
-[Cbam\_Resnet50](www.google.com) | 100
-[ResMaskingNet](www.google.com) | 100
+[ResMaskingNet](www.google.com) | 98.87
 
 <p id="install"></p>
 
